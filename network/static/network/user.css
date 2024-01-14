@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0
+}
+
+.card {
+  width: 350px;
+  background-color: #efefef;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.image img {
+  transition: all 0.5s
+}
+
+.card:hover .image img {
+  transform: scale(1.5)
+}
+
+.btn {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%
+}
+
+.name {
+  font-size: 22px;
+  font-weight: bold
+}
+
+.idd {
+  font-size: 14px;
+  font-weight: 600
+}
+
+.idd1 {
+  font-size: 12px
+}
+
+.number {
+  font-size: 22px;
+  font-weight: bold
+}
+
+.follow {
+  font-size: 12px;
+  font-weight: 500;
+  color: #444444
+}
+
+.btn1 {
+  height: 40px;
+  width: 150px;
+  border: none;
+  background-color: #000;
+  color: #aeaeae;
+  font-size: 15px
+}
+
+.text span {
+  font-size: 13px;
+  color: #545454;
+  font-weight: 500
+}
+
+.icons i {
+  font-size: 19px
+}
+
+hr .new1 {
+  border: 1px solid
+}
+
+.join {
+  font-size: 14px;
+  color: #a0a0a0;
+  font-weight: bold
+}
+
+.date {
+  background-color: #ccc
+}
+
+#follow_info_div{
+  column-gap: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#social_ids_div{
+  display: flex;
+  column-gap: 15px;
+}
+
+#main-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-right: 10%;
+  align-items: center;
+  padding-top: 2%;
+}
+
+#posts-container{
+  display: flex;
+  flex-direction: column;
+}

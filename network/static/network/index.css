@@ -1,0 +1,59 @@
+#input-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#input-div{
+  width: 50%;
+}
+
+#posts-container{
+  padding-top: 20px;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer_div{
+  padding: 10px;
+  padding-top: None;
+  text-align: end;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 2%;
+  padding-right: 3%;
+  align-items: center;
+}
+
+.card-body{
+  padding-bottom: 2px;
+}
+
+.fa-solid fa-heart{
+  color:#74C0FC;
+}
+
+fa-regular fa-heart fa-2x{
+  color:#74C0FC;
+}
+
+#tweet-btn{
+  cursor: pointer;
+}
+
+.like-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.like-count{
+  color: gray;
+  font-size: 15px;
+}
