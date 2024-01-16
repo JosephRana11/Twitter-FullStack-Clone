@@ -57,3 +57,75 @@ fa-regular fa-heart fa-2x{
   color: gray;
   font-size: 15px;
 }
+
+body{
+  background-color:#292f33;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#main-navbar{
+  background-color: #66757f;
+}
+
+.nav-link{
+  color: #ccd6dd;
+}
+.navbar-brand{
+  color: #ccd6dd;
+}
+
+#tweet-form{
+  border: none;
+  border-top: none;
+  background-color: none;
+  background: none;
+  margin-top: 10px;
+  padding-left: 25px;
+  resize: none;
+}
+
+#tweet-form:focus {
+  outline: none;
+  border: none;
+  resize: none;
+}
+
+
+#input-div{
+  margin-top: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 45%;
+}
+
+#tweet-btn{
+  align-self: flex-end;
+  margin-right: 3%;
+  margin-bottom: 2%;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 100px;
+  background-color: #2ba8fb;
+  color: #ffffff;
+  font-weight: Bold;
+  transition: all 0.5s;
+  font-weight: 200;
+  -webkit-transition: all 0.5s;
+}
+
+#tweet-btn:hover {
+  background-color: #6fc5ff;
+  box-shadow: 0 0 20px #6fc5ff50;
+  transform: scale(1.1);
+}
+
+#tweet-btn:active {
+  background-color: #3d94cf;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
