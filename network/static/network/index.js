@@ -17,7 +17,12 @@ document.addEventListener("DOMContentLoaded" , ()=>{
 
       const header_username = document.createElement('a')
       header_username.setAttribute("href" , `/user/${post.owner}`)
-      header_username.innerHTML = `@${post.owner}`
+      if (post.verified == true){
+        header_username.innerHTML = `@${post.owner}<img src = "https://cdn.worldvectorlogo.com/logos/twitter-verified-badge.svg" id = "verifi_logo"></img>`
+      }
+      else{
+        header_username.innerHTML = `@${post.owner}`
+      }
 
       header.appendChild(header_username)
       
@@ -33,7 +38,7 @@ document.addEventListener("DOMContentLoaded" , ()=>{
       like.className = "fa-regular fa-heart fa-2x"
       like.id = `post${post.id}`
       like.setAttribute("data-state" , 0)
-      like.style.color = "#74C0FC"
+      like.style.color = "#F08080"
       like.addEventListener("click" , ()=>{toggle_like(post.id)})
 
       const like_count = document.createElement("div")
@@ -73,10 +78,12 @@ document.addEventListener("DOMContentLoaded" , ()=>{
   .then(likes =>{
     likes.forEach(like => {
       const current_like = document.querySelector(`#post${like.post}`)
+      if (current_like != null){
       current_like.className = "fa-solid fa-heart fa-2x"
-      current_like.style.color = "#74C0FC"
+      current_like.style.color = "#F08080"
       current_like.dataset.state = 1
       console.log(current_like.dataset.state)
+      }
     })
   })
 
@@ -97,7 +104,7 @@ document.addEventListener("DOMContentLoaded" , ()=>{
     }
     else{
       current_like.className = "fa-regular fa-heart fa-2x"
-      current_like.style.color = "#74C0FC"
+      current_like.style.color = "#F08080"
       current_like.dataset.state = 0
       fetch('api/likes' , {
         method : 'DELETE',

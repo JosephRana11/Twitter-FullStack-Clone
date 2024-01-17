@@ -4,6 +4,13 @@
   margin-top: 20px;
 }
 
+ul{
+  list-style-type: none;
+}
+li{
+  list-style-type: none;
+}
+
 #input-div{
   width: 50%;
 }
@@ -35,11 +42,11 @@
 }
 
 .fa-solid fa-heart{
-  color:#74C0FC;
+  color:#F08080;
 }
 
 fa-regular fa-heart fa-2x{
-  color:#74C0FC;
+  color:#F08080;
 }
 
 #tweet-btn{
@@ -59,12 +66,13 @@ fa-regular fa-heart fa-2x{
 }
 
 body{
-  background-color:#292f33;
+  background-color: #438fc1;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 #main-navbar{
-  background-color: #66757f;
+  background-color: #55acee;
+  padding-left: 2%;
 }
 
 .nav-link{
@@ -128,4 +136,22 @@ body{
   box-shadow: none;
   transform: scale(0.98);
 }
+#logout_container{
+  align-items: center;
+}
 
+#main-navbar-elements{
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
+#search_container{
+  width: 370px;
+  margin-right: 25px;
+}
+
+#verifi_logo{
+  width: 18px;
+  margin-left: 5px;
+}

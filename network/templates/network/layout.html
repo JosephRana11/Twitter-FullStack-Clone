@@ -21,36 +21,48 @@
 <body>
 
     <nav class="navbar navbar-expand-lg" id="main-navbar">
-        <a class="navbar-brand" href="{% url 'index' %}">Twitter</a>
-
-        <div>
-            <ul class="navbar-nav mr-auto" id="main-navbar-elements">
-                {% if user.is_authenticated %}
+        <a class="navbar-brand" href="{% url 'index' %}"><i class="fa-brands fa-twitter fa-xl" style="color: #74C0FC;"></i></a>
+                    <ul class="navbar-nav mr-auto" id="main-navbar-elements">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'index' %}"><i class="fa-solid fa-house-user fa-xl"></i></a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'following' %}"><i class="fa-solid fa-user-group fa-xl"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=""><i class="fa-regular fa-bell fa-xl"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        </li>
+                        {% endif %}
+                        <a class="nav-link" href="{% url 'following' %}"><i class="fa-solid fa-hashtag fa-xl"></i></a>
+                    </li>
+                </ul>
+                <div class="input-group" id="search_container">
+                    <input class="form-control py-2 rounded-pill mr-1 pr-5" type="search" placeholder="Search Twitter" id="example-search-input">
+                    <span class="input-group-append">
+                        <button class="btn rounded-pill border-0 ml-n5" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+                {% if user.is_authenticated%}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'user' user.username %}"><strong>{{ user.username }}</strong></a>
+                    <a class="nav-link" href="{% url 'user' user %}"><i class="fa-solid fa-user fa-xl"></i></a>
                 </li>
                 {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">All Posts</a>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'following' %}">Following</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Log In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">Register</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
+                    <li class="nav-item" id="logut_container">
+                        <a class="nav-link" href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
+                    </li>
+                </nav>
+                
 
     <div class="body">
         {% block body %}

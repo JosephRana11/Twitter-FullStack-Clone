@@ -9,6 +9,7 @@ class User(AbstractUser):
     pass
     intro_bio = models.CharField(max_length=150 , default = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
     intro_body = models.CharField(max_length= 200 , default =  "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident")
+    is_verified = models.BooleanField(default = False)
 
 class Post(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -28,6 +29,7 @@ class Post(models.Model):
             "posted_at" : self.posted_at,
             "edited" : self.edited,
             "likes" : self.likes,
+            "verified":self.owner.is_verified
         }
 
 class Like(models.Model):

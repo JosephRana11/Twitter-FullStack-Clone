@@ -128,14 +128,18 @@ document.addEventListener('DOMContentLoaded' ,()=>{
 
       function toggle_follow(current_state){
         //to switch if user is already following to unfollow
+        const current_follower = parseInt(document.querySelector('#follower_count').innerHTML)
+        console.log(current_follower)
         if (current_state == 2){
           user_relation.innerHTML = "Follow"
           user_relation.dataset.state = 3
+          document.querySelector("#follower_count").innerHTML = `${current_follower - 1}<span class="follow"> Followers</span>`
         }
         //to follow user
         else if (current_state == 3){
           user_relation.innerHTML = "Following"
           user_relation.dataset.state = 2
+          document.querySelector("#follower_count").innerHTML = `${current_follower + 1}<span class="follow"> Followers</span>` 
         }
         fetch('/api/user/follow',{
           method : 'Patch',
