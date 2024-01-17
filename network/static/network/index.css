@@ -155,3 +155,13 @@ body{
   width: 18px;
   margin-left: 5px;
 }
+
+#tweet-form:focus{
+  outline: none;
+  border: none;
+  box-shadow: none;
+
+}
+#tweet-form:foucs #input-div{
+  box-shadow: 0 0 50px 15px #48abe0;
+}
