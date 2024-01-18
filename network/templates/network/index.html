@@ -2,6 +2,7 @@
 {% load static %}
 {% block body %}
 <link rel="stylesheet" href="{% static 'network/index.css' %}">
+
 <div id="input-container">
   <div class="input-group" id="input-div">
     <textarea class="form-control" aria-label="With textarea" id="tweet-form" placeholder="What's on your mind?"></textarea>
@@ -12,8 +13,8 @@
     
   </div>
 </div>
+
 <div id="posts-container">
 </div>
 <script src="{% static 'network/index.js' %}"></script>
-<script src="{% static 'network/post-data.js' %}"></script>
 {% endblock %}

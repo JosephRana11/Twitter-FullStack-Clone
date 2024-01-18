@@ -15,11 +15,15 @@
         integrity="sha512-8RxmFOVaKQe/xtg6lbscU9DU0IRhURWEuiI0tXevv+lXbAHfkpamD4VKFQRto9WgfOJDwOZ74c/s9Yesv3VvIQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'network/post-data.js' %}"></script>
 
 </head>
 
 <body>
-
+    <div id="loader_div">
+        <div id="loader">
+        </div>
+      </div>
     <nav class="navbar navbar-expand-lg" id="main-navbar">
         <a class="navbar-brand" href="{% url 'index' %}"><i class="fa-brands fa-twitter fa-xl" style="color: #74C0FC;"></i></a>
                     <ul class="navbar-nav mr-auto" id="main-navbar-elements">
@@ -63,7 +67,7 @@
                     </li>
                 </nav>
                 
-
+      
     <div class="body">
         {% block body %}
         {% endblock %}
