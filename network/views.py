@@ -223,7 +223,7 @@ def add_like_notification(target_post , current_user):
      main_text = f"{current_user.username} liked your Post" 
      notification_demo = Notification(notification_post = target_post , notification_to = target_post.owner , text = main_text , notification_from = current_user )
      notification_demo.save()
-     print("added like notification")
+     print("added like notification.")
 
 def add_following_notification(target_user , current_user):
     main_text = f"{current_user} started Following you."
@@ -238,3 +238,14 @@ def delete_like_notification(target_post , current_user):
 def delete_following_notification(target_user , current_user):
     notification_post = Notification.objects.get(notification_to = target_user , notification_from = current_user)
     notification_post.delete()
+
+def get_notifications_api_view(request):
+    notifications_query = Notification.objects.filter( notification_to = request.user )
+    data = []
+    for notification in notifications_query:
+        data.append(notification.serialize())
+    return JsonResponse(data , safe = False)
+
+
+def notification_view(request):
+    return render(request , "network/notification.html")

@@ -1,0 +1,12 @@
+{% extends "./layout.html" %}
+{% load static %}
+{% block body %}
+<link rel = "stylesheet" href={% static 'network/index.css'%}>
+<link rel = "stylesheet" href = {% static 'network/styles.css' %}>
+<link rel="stylesheet" href = {% static 'network/user.css' %}>
+<script src = {% static 'network/notifications.js'%}></script>
+  <div id="notifications_div">
+  </div>
+{% endblock %}
+{% block script %}
+{% endblock %}

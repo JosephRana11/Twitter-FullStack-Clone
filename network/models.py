@@ -66,7 +66,7 @@ class Notification(models.Model):
     notification_to = models.ForeignKey(User , on_delete=models.CASCADE , related_name = "user_notfications")
     text = models.TextField()
     notification_from = models.ForeignKey(User, on_delete=models.CASCADE)
-    notfication_date = models.DateTimeField( auto_now=False, auto_now_add=True)
+    notification_date = models.DateTimeField( auto_now=False, auto_now_add=True)
     is_read = models.BooleanField(default = False)
 
     def __str__(self):
@@ -74,9 +74,9 @@ class Notification(models.Model):
     
     def serialize(self):
         return {
-            "notification_to" : User.objects.get(id = self.notification_to).username,
+            "notification_to" : self.notification_to.username ,
             "notification_text" : self.text,
-            "notification_from" : User.objects.get(id = self.notification_from).username,
+            "notification_from" : self.notification_from.username ,
             "notification_date" : self.notification_date,
             "is_read" : self.is_read
         }

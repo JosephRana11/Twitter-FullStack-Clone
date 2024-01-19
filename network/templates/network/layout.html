@@ -15,7 +15,7 @@
         integrity="sha512-8RxmFOVaKQe/xtg6lbscU9DU0IRhURWEuiI0tXevv+lXbAHfkpamD4VKFQRto9WgfOJDwOZ74c/s9Yesv3VvIQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="{% static 'network/post-data.js' %}"></script>
+ 
 
 </head>
 
@@ -35,7 +35,7 @@
                             <a class="nav-link" href="{% url 'following' %}"><i class="fa-solid fa-user-group fa-xl"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href=""><i class="fa-regular fa-bell fa-xl"></i></a>
+                            <a class="nav-link" href="{% url 'notifications' %}"><i class="fa-regular fa-bell fa-xl"></i></a>
                         </li>
                         {% else %}
                         <li class="nav-item">
@@ -72,6 +72,10 @@
         {% block body %}
         {% endblock %}
     </div>
+    <! -- For unlinking post data script -->
+    {% block script %}
+    <script src="{% static 'network/post-data.js' %}"></script>
+    {% endblock %}
 </body>
 
 </html>

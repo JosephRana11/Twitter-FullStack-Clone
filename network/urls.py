@@ -9,6 +9,7 @@ urlpatterns = [
     path("logout", views.logout_view, name="logout"),
     path("register", views.register, name="register"),
     path("following" , views.following_posts_view , name ="following"),
+    path("notifications" , views.notification_view , name = "notifications"),
 
 
     path("user/<str:request_user_name>" , views.user_profile_view , name = "user"),
@@ -20,5 +21,6 @@ urlpatterns = [
     path("api/following" , views.get_following_posts_api_view),
     path("api/posts/<str:request_user_name>" , views.get_user_post),
     path("api/user/relation/<str:request_user_name>" , views.get_user_relation_view),
-    path("api/user/follow" , views.update_user_relation_api_view)
+    path("api/user/follow" , views.update_user_relation_api_view),
+    path("api/user/notifications" , views.get_notifications_api_view)
 ]

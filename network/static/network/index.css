@@ -15,7 +15,7 @@ li{
   width: 50%;
 }
 
-#posts-container{
+#posts-container , #notifications_div{
   padding-top: 20px;
   align-items: center;
   align-content: center;
@@ -32,6 +32,19 @@ li{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-left: 2%;
+  padding-right: 3%;
+  align-items: center;
+}
+
+.notification_footer_div{
+  padding: 10px;
+  padding-top: None;
+  text-align: end;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   padding-left: 2%;
   padding-right: 3%;
   align-items: center;
