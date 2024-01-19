@@ -240,7 +240,7 @@ def delete_following_notification(target_user , current_user):
     notification_post.delete()
 
 def get_notifications_api_view(request):
-    notifications_query = Notification.objects.filter( notification_to = request.user )
+    notifications_query = Notification.objects.filter( notification_to = request.user ).order_by('-notification_date')
     data = []
     for notification in notifications_query:
         data.append(notification.serialize())
