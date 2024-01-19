@@ -112,7 +112,7 @@ def get_likes_api_view(request):
         post_owner.total_likes += 1
         post_owner.save()
         like.save()
-        add_like_notification(current_post , request.user , "likes")
+        add_like_notification(current_post , request.user)
         return HttpResponse("recived")
     elif request.method == "DELETE":
         data = json.loads(request.body)
@@ -125,6 +125,7 @@ def get_likes_api_view(request):
         post_owner = User.objects.get(username = current_post.owner)
         post_owner.total_likes -= 1
         post_owner.save()
+        delete_like_notification(current_post , request.user)
         return HttpResponse("Deleted")
 
 
@@ -205,6 +206,7 @@ def update_user_relation_api_view(request):
             current_user.save()
             target_user.save()
             current_user_profile.save()
+            delete_following_notification(target_user , current_user)
         else:
             current_user_profile.following.add(target_user.id)
             target_user.number_of_followers += 1
@@ -221,12 +223,18 @@ def add_like_notification(target_post , current_user):
      main_text = f"{current_user.username} liked your Post" 
      notification_demo = Notification(notification_post = target_post , notification_to = target_post.owner , text = main_text , notification_from = current_user )
      notification_demo.save()
+     print("added like notification")
 
 def add_following_notification(target_user , current_user):
     main_text = f"{current_user} started Following you."
     notification_demo = Notification(notification_post = None , notification_to = target_user , text = main_text , notification_from = current_user)
     notification_demo.save()
 
-def delete_notification(target_user , current_user , type):
-    if target_post.owner != current_post:
-        pass
+def delete_like_notification(target_post , current_user):
+    if target_post.owner != current_user:
+        notification_post = Notification.objects.get(notification_post = target_post , notification_from = current_user)
+        notification_post.delete()
+
+def delete_following_notification(target_user , current_user):
+    notification_post = Notification.objects.get(notification_to = target_user , notification_from = current_user)
+    notification_post.delete()
