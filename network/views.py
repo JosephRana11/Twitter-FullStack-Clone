@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 import json
 
-from .models import User , Post , Like , UserProfile
+from .models import User , Post , Like , UserProfile , Notification
 
 from django.views.decorators.csrf import csrf_exempt
 
@@ -112,6 +112,7 @@ def get_likes_api_view(request):
         post_owner.total_likes += 1
         post_owner.save()
         like.save()
+        add_like_notification(current_post , request.user , "likes")
         return HttpResponse("recived")
     elif request.method == "DELETE":
         data = json.loads(request.body)
@@ -211,4 +212,21 @@ def update_user_relation_api_view(request):
             current_user.save()
             target_user.save()
             current_user_profile.save()
+            add_following_notification(target_user , current_user)
         return HttpResponse("ok")
+
+
+def add_like_notification(target_post , current_user):
+    if target_post.owner != current_user:
+     main_text = f"{current_user.username} liked your Post" 
+     notification_demo = Notification(notification_post = target_post , notification_to = target_post.owner , text = main_text , notification_from = current_user )
+     notification_demo.save()
+
+def add_following_notification(target_user , current_user):
+    main_text = f"{current_user} started Following you."
+    notification_demo = Notification(notification_post = None , notification_to = target_user , text = main_text , notification_from = current_user)
+    notification_demo.save()
+
+def delete_notification(target_user , current_user , type):
+    if target_post.owner != current_post:
+        pass
